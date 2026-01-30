@@ -1,0 +1,87 @@
+## Relevant Files
+
+- `package.json` - Main project configuration and dependencies
+- `package-lock.json` - Dependency lock file for reproducible builds
+- `src/App.tsx` - Main application component
+- `src/main.tsx` - Application entry point
+- `src/components/ui/Button.tsx` - Reusable Button component
+- `src/components/ui/Button.test.tsx` - Unit tests for Button component
+- `src/components/layout/Header.tsx` - Application header component
+- `src/components/layout/Sidebar.tsx` - Navigation sidebar component
+- `src/pages/Dashboard.tsx` - Main dashboard page
+- `src/pages/Dashboard.test.tsx` - Unit tests for Dashboard page
+- `src/services/api.ts` - Main API client service
+- `src/services/api.test.ts` - Unit tests for API service
+- `src/types/index.ts` - TypeScript type definitions
+- `src/hooks/useAuth.ts` - Authentication hook
+- `src/hooks/useAuth.test.ts` - Unit tests for auth hook
+- `supabase/config.ts` - Supabase client configuration
+- `supabase/migrations/` - Database migration files
+- `public/index.html` - HTML template
+- `vite.config.ts` - Vite build configuration
+- `tailwind.config.js` - TailwindCSS configuration
+- `tsconfig.json` - TypeScript configuration
+- `src/locales/en/translation.json` - English translations
+- `src/locales/vi/translation.json` - Vietnamese translations
+- `tests/setup.ts` - Test setup configuration
+- `docs/USER-GUIDE.md` - User documentation
+- `docs/DEVELOPER-GUIDE.md` - Developer documentation
+- `scripts/health-check.js` - Health check script
+- `scripts/verify-deps.js` - Dependency verification script
+- `.env.example` - Environment variables template
+- `.env.local` - Local environment variables (not committed)
+- `README.md` - Project documentation
+
+### Notes
+
+- Unit tests should typically be placed alongside the code files they are testing (e.g., `MyComponent.tsx` and `MyComponent.test.tsx` in the same directory).
+- Use `npx jest [optional/path/to/test/file]` to run tests. Running without a path executes all tests found by the Jest configuration.
+- Always include error prevention tasks (dependency verification, type checking, etc.) in the first parent task.
+- Include documentation tasks for complex features.
+- Consider adding health check scripts for critical features.
+
+## Tasks
+
+- [ ] 1.0 Project Setup and Infrastructure (Error Prevention)
+  - [x] 1.1 Install and verify dependencies (React 18, Vite, TypeScript, TailwindCSS, Supabase client)
+  - [x] 1.2 Set up TypeScript strict mode and configuration
+  - [x] 1.3 Create project directory structure
+  - [x] 1.4 Set up environment variables and configuration files
+  - [x] 1.5 Create verification scripts (type-check, lint, health-check)
+  - [x] 1.6 Add error prevention documentation and checklists
+- [ ] 2.0 Backend Setup (Database and API)
+  - [ ] 2.1 Set up Supabase project and client configuration
+  - [ ] 2.2 Create database schema and tables (users, transactions, career_plans, etc.)
+  - [ ] 2.3 Implement authentication (login, signup, logout)
+  - [ ] 2.4 Create API service layer with TypeScript types
+  - [ ] 2.5 Implement CRUD operations for all entities
+  - [ ] 2.6 Set up Row Level Security and data validation
+- [ ] 3.0 Frontend Core Implementation
+  - [ ] 3.1 Set up Vite project with React 18 and TypeScript
+  - [ ] 3.2 Configure TailwindCSS and design system
+  - [ ] 3.3 Implement routing with React Router
+  - [ ] 3.4 Create core layout components (Header, Sidebar, Layout)
+  - [ ] 3.5 Set up state management (React Query + Context API)
+  - [ ] 3.6 Implement internationalization (react-i18next)
+  - [ ] 3.7 Create reusable UI components (Button, Input, Modal, etc.)
+- [ ] 4.0 Feature Modules Implementation
+  - [ ] 4.1 Implement Dashboard module (health score, metrics, charts)
+  - [ ] 4.2 Implement Finance module (transactions, cashflow analysis)
+  - [ ] 4.3 Implement Career module (10-year plan, timeline visualization)
+  - [ ] 4.4 Implement People module (relationships, impact map)
+  - [ ] 4.5 Implement Decisions module (decision logging, analytics)
+  - [ ] 4.6 Implement Time & Energy module (daily tracking, charts)
+- [ ] 5.0 Testing and Documentation
+  - [ ] 5.1 Write unit tests for utilities and core components
+  - [ ] 5.2 Create integration tests for API services
+  - [ ] 5.3 Set up E2E testing with Playwright
+  - [ ] 5.4 Create user documentation and guides
+  - [ ] 5.5 Create developer documentation and API docs
+  - [ ] 5.6 Add troubleshooting guides and FAQs
+- [ ] 6.0 Deployment and Launch
+  - [ ] 6.1 Set up CI/CD pipeline with GitHub Actions
+  - [ ] 6.2 Configure production build optimization
+  - [ ] 6.3 Deploy to hosting platform (Vercel/Netlify)
+  - [ ] 6.4 Set up monitoring and error tracking
+  - [ ] 6.5 Performance optimization and bundle analysis
+  - [ ] 6.6 Launch preparation and post-launch monitoring
