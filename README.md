@@ -85,11 +85,16 @@ life-os/
 - Run `npm run lint` for code linting
 - Check `PRE-PUSH-CHECKLIST.md` before committing
 
-## Contributing
+## Supabase Setup
 
-1. Follow the `PRE-PUSH-CHECKLIST.md`
-2. Run health checks before pushing
-3. Use conventional commit messages
+1. Create a new project at [Supabase](https://supabase.com)
+2. Go to Settings > API to get your Project URL and anon public key
+3. Copy `.env.example` to `.env.local` and fill in your values:
+   ```
+   VITE_SUPABASE_URL=your_project_url
+   VITE_SUPABASE_ANON_KEY=your_anon_key
+   ```
+4. Go to the SQL Editor in Supabase and run the contents of `supabase/schema.sql`
 
 ## License
 
