@@ -1,0 +1,30 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your Life OS Dashboard"
+  },
+  "finance": {
+    "title": "Finance",
+    "description": "Manage your financial transactions and cash flow"
+  },
+  "career": {
+    "title": "Career",
+    "description": "Plan your 10-year career journey"
+  },
+  "people": {
+    "title": "People",
+    "description": "Manage your relationships and connections"
+  },
+  "decisions": {
+    "title": "Decisions",
+    "description": "Log and analyze your important decisions"
+  },
+  "timeEnergy": {
+    "title": "Time & Energy",
+    "description": "Track your time and energy levels"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Configure your Life OS preferences"
+  }
+}
