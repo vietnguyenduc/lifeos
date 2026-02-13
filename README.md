@@ -87,6 +87,10 @@ life-os/
 
 ## Supabase Setup
 
+Supabase is used for backend database and authentication. For local development, you can run the app without Supabase setup - it will use mock data and services.
+
+To connect to a real Supabase instance:
+
 1. Create a new project at [Supabase](https://supabase.com)
 2. Go to Settings > API to get your Project URL and anon public key
 3. Copy `.env.example` to `.env.local` and fill in your values:
@@ -95,6 +99,59 @@ life-os/
    VITE_SUPABASE_ANON_KEY=your_anon_key
    ```
 4. Go to the SQL Editor in Supabase and run the contents of `supabase/schema.sql`
+
+## How to Use
+
+### Dashboard
+The dashboard shows your overall life health score, key metrics, and trends over time. Use it to get a quick overview of your life optimization progress.
+
+### Finance
+Track your income and expenses, view cashflow charts over time. Add transactions to monitor your financial health.
+
+### Career
+Plan your career progression and income projections. Define career phases and track skill development.
+
+### People
+Manage your relationships and their impact on your life. Categorize relationships by priority groups and track interaction frequency.
+
+### Decisions
+Log important decisions and analyze their outcomes. Track emotional states before and after decisions to improve decision-making.
+
+### Time & Energy
+Daily logging of time spent on different activities and energy levels. Use this to optimize your daily routines and productivity.
+
+## API Documentation
+
+For developers:
+
+### Authentication
+```typescript
+import { auth } from './services/auth'
+
+// Sign in
+await auth.signIn('email@example.com', 'password')
+
+// Sign up
+await auth.signUp('email@example.com', 'password', 'Full Name')
+
+// Sign out
+await auth.signOut()
+```
+
+### Data APIs
+```typescript
+import { api } from './services/api'
+
+// Get transactions
+const transactions = await api.transactions.getAll()
+
+// Create transaction
+await api.transactions.create({
+  type: 'income',
+  amount: 1000,
+  description: 'Salary'
+})
+```
 
 ## License
 
