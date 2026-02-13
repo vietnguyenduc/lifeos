@@ -19,6 +19,6 @@ export const saveModuleData = async <T>(module: string, userId: string, payload:
     user_id: userId,
     data: payload,
     updated_at: new Date().toISOString()
-  })
+  }, { onConflict: 'user_id,module' })
   if (error) throw error
 }
