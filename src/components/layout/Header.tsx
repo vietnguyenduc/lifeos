@@ -1,8 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../../contexts/AuthContext'
 
 const Header: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick }) => {
   const { i18n } = useTranslation()
+  const { user, signOut } = useAuth()
 
   const switchLanguage = () => {
     const newLang = i18n.language === 'en' ? 'vi' : 'en'
@@ -10,7 +12,7 @@ const Header: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick }) => {
   }
 
   return (
-    <header className="bg-white shadow-sm border-b px-6 py-4 flex items-center justify-between">
+    <header className="bg-white shadow-sm border-b px-4 sm:px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-3">
         {onMenuClick && (
           <button
@@ -31,6 +33,19 @@ const Header: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick }) => {
       >
         {i18n.language === 'en' ? 'Tiếng Việt' : 'English'}
       </button>
+      {user && (
+        <div className="ml-3 flex items-center gap-3 text-sm text-gray-700">
+          <div className="hidden sm:block truncate max-w-[180px]" title={user.email || ''}>
+            {user.email}
+          </div>
+          <button
+            onClick={signOut}
+            className="px-3 py-1 rounded-md border border-slate-200 text-gray-700 hover:bg-gray-100 text-sm"
+          >
+            Đăng xuất
+          </button>
+        </div>
+      )}
     </header>
   )
 }

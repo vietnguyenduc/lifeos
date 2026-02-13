@@ -32,40 +32,60 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-100">
-      <div className="w-full max-width-md max-w-md p-6 rounded-lg shadow bg-white border border-slate-200">
-        <h1 className="text-xl font-semibold mb-4">Life OS Login</h1>
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            className="w-full px-3 py-2 rounded border"
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            className="w-full px-3 py-2 rounded border"
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 flex items-center justify-center px-4 py-6">
+      <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white shadow-sm p-6 sm:p-8">
+        <div className="mb-6 space-y-1">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Life OS</p>
+          <h1 className="text-2xl font-bold text-slate-900">{mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}</h1>
+          <p className="text-sm text-slate-500">Đồng bộ dữ liệu qua Supabase. Dùng email/password của bạn.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-700" htmlFor="email">Email</label>
+            <input
+              id="email"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="you@example.com"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-700" htmlFor="password">Mật khẩu</label>
+            <input
+              id="password"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="••••••••"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+            />
+          </div>
+
           {error && <p className="text-sm text-red-600">{error}</p>}
           {message && <p className="text-sm text-emerald-600">{message}</p>}
+
           <button
             type="submit"
-            className="w-full px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center rounded-xl bg-blue-600 text-white text-sm font-semibold px-4 py-2.5 shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-60"
             disabled={loading}
+            aria-busy={loading}
           >
             {loading ? 'Đang xử lý...' : mode === 'login' ? 'Đăng nhập' : 'Tạo tài khoản'}
           </button>
         </form>
-        <div className="mt-3 text-sm flex justify-between items-center">
-          <span>{mode === 'login' ? 'Chưa có tài khoản?' : 'Đã có tài khoản?'}</span>
+
+        <div className="mt-4 text-sm flex items-center justify-between">
+          <span className="text-slate-600">{mode === 'login' ? 'Chưa có tài khoản?' : 'Đã có tài khoản?'}</span>
           <button
-            className="text-blue-600 underline"
+            className="text-blue-600 font-semibold hover:underline"
             onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(null); setMessage(null) }}
           >
             {mode === 'login' ? 'Đăng ký' : 'Đăng nhập'}
